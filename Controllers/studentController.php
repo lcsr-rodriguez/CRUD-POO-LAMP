@@ -1,14 +1,23 @@
 <?php namespace Controllers;
 
+use Models\Student as Student;
+
 class studentController
 {
-    public function __construct(){
 
+    private $student;
+
+    public function __construct(){
+        $this->student = new Student();
     }
 
     public function index(){
-        echo "estamos en student";
+        $data = $this->student->toList();
+
+        return $data;
     } 
 }
+
+$students = new studentController();
 
 ?>

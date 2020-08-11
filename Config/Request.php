@@ -29,6 +29,10 @@ class Request
             }
             $this->argument = $route;
         }
+        else{
+            $this->controller = "student";
+            $this->method = "index";
+        }
     }
 
     // Setters and Getters

@@ -30,6 +30,15 @@ class Router
                 call_user_func_array(array($controller, $method), $argument);
             }
         }
+
+        // Load View
+        $route = ROOT . "Views" . DS . $request->getController() . DS . $request->getMethod() . ".php";
+        if(is_readable($route)){
+            require_once $route;
+        }
+        else{
+            echo "La ruta especificada no existe.";
+        }
     }
 
 }
